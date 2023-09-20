@@ -27,13 +27,11 @@ namespace PokemonMMOBattleServer.ServerService
 
         public List<Socket> ActiveClients = new();
 
-        public event EventHandler<ClientJoinEventArgs> NewClientConnection;
+        public event EventHandler<ClientJoinEventArgs>? NewClientConnection;
 
 
         public ServerClass()
         {
-            this.ipHostInfo = ipHostInfo;
-            this.ipAddress = ipAddress;
         }
 
 
@@ -70,7 +68,6 @@ namespace PokemonMMOBattleServer.ServerService
                 NewClientConnection?.Invoke(this, clientArgs);
             }
 
-            return;
         }
 
         public void EmitMessage(String Message, List<Socket> Exclude)
