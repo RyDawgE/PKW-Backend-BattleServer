@@ -22,5 +22,21 @@ namespace PokemonMMOBattleServer.PokemonBattleService.Framework.Stats
 
             return statRef;
         }
+
+        public float EvaluateStat(string statId)
+        {
+            return Stats[statId].Evaluate();
+        }
+
+        public Stat GetStat(string id)
+        {
+            return Stats[id];
+        }
+
+        public float EditStatValue(string statId, float value)
+        {
+            Stats[statId].EditStat(value);
+            return value;
+        }
     }
 }
