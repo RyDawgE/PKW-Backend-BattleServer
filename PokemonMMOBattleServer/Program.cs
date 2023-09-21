@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using PokemonMMOBattleServer.BattleLobbyService;
+using PokemonMMOBattleServer.PokemonBattleService.BattleData;
 using PokemonMMOBattleServer.ServerService;
 
 namespace PokemonMMOBattleServerApp
@@ -16,6 +17,8 @@ namespace PokemonMMOBattleServerApp
             serverThread.Start(Server);
             EventHandler<ClientJoinEventArgs> newClientHandler = BattleLobby.NewClientHandler;
             Server.NewClientConnection += newClientHandler;
+
+            Pkmn_DataObject test = new();
         }
 
 
