@@ -4,15 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonMMOBattleServer.PokemonBattleService
+namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow
 {
-    struct TrainerData
-    {
-        string id;
-
-
-    }
-
     internal class BattleController
     {
     }
