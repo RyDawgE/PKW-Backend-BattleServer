@@ -10,6 +10,11 @@ namespace PokemonMMOBattleServer.PokemonBattleService.Framework.Stats.Modifier
     {
         string id = "";
 
+        public StatModifier(string id = "") {
+            this.id = id;
+
+        }
+
         public float Evaluate(float value)
         {
             return value;
