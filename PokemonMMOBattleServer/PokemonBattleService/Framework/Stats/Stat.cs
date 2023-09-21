@@ -16,10 +16,13 @@ namespace PokemonMMOBattleServer.PokemonBattleService.Framework.Stats
         string name = "stat name";
         float value = 0;
 
-        public Stat(string name, string id, float value)
+        event EventHandler OnStatEditedEvent;
+
+        public Stat(string name = "stat name", string id = "defaultId", float value = 0)
         {
             this.name = name;
             this.id = id;
+            this.value = value;
         }
 
         public float Evaluate()
@@ -30,6 +33,13 @@ namespace PokemonMMOBattleServer.PokemonBattleService.Framework.Stats
                 val = modifier.Evaluate(val);
             }
             return val;
+        }
+
+        public float EditStat(float value)
+        {
+            this.value = value;
+
+            return this.value;
         }
     }
     
