@@ -2,6 +2,7 @@
 
 using PokemonMMOBattleServer.BattleLobbyService;
 using PokemonMMOBattleServer.PokemonBattleService.BattleData;
+using PokemonMMOBattleServer.PokemonBattleService.BattleFlow;
 using PokemonMMOBattleServer.ServerService;
 
 namespace PokemonMMOBattleServerApp
@@ -17,6 +18,8 @@ namespace PokemonMMOBattleServerApp
             serverThread.Start(Server);
             EventHandler<ClientJoinEventArgs> newClientHandler = BattleLobby.NewClientHandler;
             Server.NewClientConnection += newClientHandler;
+
+            new BattleController();
 
          }
 
