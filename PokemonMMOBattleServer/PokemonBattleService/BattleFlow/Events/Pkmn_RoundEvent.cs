@@ -28,10 +28,20 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents
         public override void SetupRoundEvent()
         {
             base.SetupRoundEvent();
-            battleEvents.Add(new Pkmn_BattlePreroundEvent());
+
+            // This is the main flow. It should look like this:"
+            // Preround - Check Win Conditions
+            // Trainer Turn A - Choose Move
+            // Trainer Turn B - Choose Move
+            // Midround - Generate Turn Order
+            // Battle Turn 1 - Execute Move
+            // Battle Turn 2 - Execute Move
+            // Postround - Timed Events End
+
+            battleEvents.Add(new Pkmn_BattlePreroundEvent(GetBattleController()));
             foreach (PlayerControllerBase trainer in GetBattleController().battleParticipants.GetAllPlayerControllers())
             {
-
+                battleEvents.Add(new Pkmn_TrainerTurnEvent(GetBattleController(), trainer)); 
             }
 
         }
