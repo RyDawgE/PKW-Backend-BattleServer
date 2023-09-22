@@ -1,4 +1,5 @@
-﻿using PokemonMMOBattleServer.PokemonBattleService.Framework.Stats;
+﻿using PokemonMMOBattleServer.PokemonBattleService.BattleData.APIResponse;
+using PokemonMMOBattleServer.PokemonBattleService.Framework.Stats;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +11,12 @@ using System.Threading.Tasks;
 
 namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
 {
-    public class PokeAPIStat { 
-        public int base_stat { get; set; }
-    }
-
-    public class PokeAPIResponse
-    {
-        public int base_experience { get; set; }
-        public List<PokeAPIStat> stats { get; set; }
-    }
     public class Pkmn_DataObject
     {
         public static string api_key = "pikachu";
         public StatManager statManager = new();
+        public List<string> moves = new();
+        public int level = 50;
         public Pkmn_DataObject() 
         {
             statManager.AddStat("hp", "HP", 0);
@@ -32,7 +26,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
             statManager.AddStat("spdef", "Special Defense", 0);
             statManager.AddStat("spd", "Speed", 0);
 
-            SetupStatsFromAPI();
+            SetupStatsFromAPI(); // temp
 
         }
 
@@ -55,19 +49,13 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
                     statManager.GetStat("spatk"),
                     statManager.GetStat("spdef"),
                     statManager.GetStat("spd")
-
+                    
                 };
-                int i = 0; foreach (var stat in pokeAPIData.stats)
+                int i = 0; foreach (var stat in pokeAPIData.Stats)
                 {
                     pokeStats[i].EditStat(stat.base_stat);
                     i++;
                 }
-
-                foreach (Stat stat in statManager.Stats.Values)
-                {
-                    Console.WriteLine(stat.Evaluate());
-                }
-
             }
         }
     }
