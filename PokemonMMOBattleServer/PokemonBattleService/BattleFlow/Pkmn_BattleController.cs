@@ -1,4 +1,5 @@
 ﻿using PokemonMMOBattleServer.PokemonBattleService.BattleData;
+using PokemonMMOBattleServer.PokemonBattleService.BattleData.Field;
 using PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents;
 using PokemonMMOBattleServer.PokemonBattleService.Framework.RoundFlow;
 using System;
@@ -11,16 +12,23 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow
 {
     public class BattleController
     {
-        Pkmn_BattleRoundEvent? RoundQueue;
+        public Pkmn_BattleRoundEvent? roundQueue;
+
         public Pkmn_ParticipantData battleParticipants = new();
+        public Pkmn_BattleDataClass battleData = new();
+
+        public Pkmn_Field? fieldController;
+
         public BattleController()
         {
-            RoundQueue = new Pkmn_BattleRoundEvent(this);
+            fieldController = new Pkmn_Field(this);
+            roundQueue = new Pkmn_BattleRoundEvent(this);
         }
 
         public void StartBattle()
         {
-            RoundQueue.SetupRoundEvent();
+            fieldController.SetupField();
+            roundQueue.SetupRoundEvent();
 
         }
     }
