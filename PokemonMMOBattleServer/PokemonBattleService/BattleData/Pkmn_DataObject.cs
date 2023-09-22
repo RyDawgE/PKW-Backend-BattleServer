@@ -32,7 +32,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
 
         public async void SetupStatsFromAPI(string id  = "charizard")
         {
-            HttpClient client = new();
+            HttpClient? client = new();
             client.BaseAddress = new Uri("https://pokeapi.co/api/v2/pokemon/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -57,6 +57,8 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
                     i++;
                 }
             }
+            client.Dispose();  // Remove HTTP Interface Client
+            client = null;
         }
     }
 }
