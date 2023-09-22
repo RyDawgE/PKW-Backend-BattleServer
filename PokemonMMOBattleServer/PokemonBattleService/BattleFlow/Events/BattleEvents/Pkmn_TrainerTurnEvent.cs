@@ -1,4 +1,5 @@
-﻿using PokemonMMOBattleServer.PokemonBattleService.Framework.RoundFlow.BattleEvent;
+﻿using PokemonMMOBattleServer.PokemonBattleService.Framework.Controller;
+using PokemonMMOBattleServer.PokemonBattleService.Framework.RoundFlow.BattleEvent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,10 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.Events.BattleEv
 {
     public class Pkmn_TrainerTurnEvent: BattleEventBase
     {
-        public Pkmn_TrainerTurnEvent(BattleController battleControllerRef) : base(battleControllerRef)
+        private readonly PlayerControllerBase? playerControllerReference;
+        public Pkmn_TrainerTurnEvent(BattleController battleControllerRef, PlayerControllerBase playerControllerRef) : base(battleControllerRef)
         {
-
+            playerControllerReference = playerControllerRef;
         }
     }
 }
