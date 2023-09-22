@@ -1,4 +1,5 @@
 ﻿using PokemonMMOBattleServer.PokemonBattleService.BattleFlow.Events.BattleEvents;
+using PokemonMMOBattleServer.PokemonBattleService.Framework.Controller;
 using PokemonMMOBattleServer.PokemonBattleService.Framework.RoundFlow;
 using PokemonMMOBattleServer.PokemonBattleService.Framework.RoundFlow.BattleEvent;
 
@@ -10,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents
 {
-    internal class Pkmn_BattleRoundEvent: RoundEventBase
+    public class Pkmn_BattleRoundEvent: RoundEventBase
     {
-        BattleController? battleControllerReference;
+        private readonly BattleController? battleControllerReference;
         public Pkmn_BattleRoundEvent(BattleController battleControllerRef) :
             base()
         {
@@ -28,7 +29,11 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents
         {
             base.SetupRoundEvent();
             battleEvents.Add(new Pkmn_BattlePreroundEvent());
-            
+            foreach (PlayerControllerBase trainer in GetBattleController().battleParticipants.GetAllPlayerControllers())
+            {
+
+            }
+
         }
 
         

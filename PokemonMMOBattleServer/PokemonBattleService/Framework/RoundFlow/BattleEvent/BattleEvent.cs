@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PokemonMMOBattleServer.PokemonBattleService.BattleFlow;
+using PokemonMMOBattleServer.PokemonBattleService.Framework.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +10,11 @@ namespace PokemonMMOBattleServer.PokemonBattleService.Framework.RoundFlow.Battle
 {
     public class BattleEventBase
     {
-        public BattleEventBase() { }
+        private readonly BattleController? battleControllerReference;
+        public BattleEventBase(BattleController battleControllerRef) 
+        {
+            battleControllerReference = battleControllerRef;
+        }
 
         public void BeginBattleEvent()
         {

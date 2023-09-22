@@ -12,7 +12,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow
     public class BattleController
     {
         Pkmn_BattleRoundEvent? RoundQueue;
-        Pkmn_ParticipantData battleParticipants = new();
+        public Pkmn_ParticipantData battleParticipants = new();
         public BattleController()
         {
             RoundQueue = new Pkmn_BattleRoundEvent(this);
@@ -21,6 +21,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow
         public void StartBattle()
         {
             RoundQueue.SetupRoundEvent();
+
         }
     }
 }

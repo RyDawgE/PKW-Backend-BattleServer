@@ -9,5 +9,9 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.Events.BattleEv
 {
     public class Pkmn_BattlePreroundEvent : BattleEventBase
     {
+        public Pkmn_BattlePreroundEvent(BattleController battleControllerRef) : base(battleControllerRef)
+        {
+
+        }
     }
 }

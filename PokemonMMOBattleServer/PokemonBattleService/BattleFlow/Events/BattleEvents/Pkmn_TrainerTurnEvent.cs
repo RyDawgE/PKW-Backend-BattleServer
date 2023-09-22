@@ -9,5 +9,9 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.Events.BattleEv
 {
     public class Pkmn_TrainerTurnEvent: BattleEventBase
     {
+        public Pkmn_TrainerTurnEvent(BattleController battleControllerRef) : base(battleControllerRef)
+        {
+
+        }
     }
 }
