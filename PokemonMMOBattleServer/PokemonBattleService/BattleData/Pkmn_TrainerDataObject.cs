@@ -8,6 +8,8 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
 {
     public class Pkmn_TrainerDataObject
     {
+        List<Pkmn_DataObject> Pkmn_Party = new();
+        
         public Pkmn_TrainerDataObject()
         {
 
