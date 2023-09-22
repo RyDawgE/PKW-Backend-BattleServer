@@ -6,9 +6,9 @@ using PokemonMMOBattleServer.ServerService;
 
 namespace PokemonMMOBattleServerApp
 {
-    class ServerProgram
+    class BattleServerProgram
     {
-        public ServerProgram() {}
+        public BattleServerProgram() {}
         static void Main(string[] args)
         {
             ServerClass? Server = new();
@@ -18,8 +18,7 @@ namespace PokemonMMOBattleServerApp
             EventHandler<ClientJoinEventArgs> newClientHandler = BattleLobby.NewClientHandler;
             Server.NewClientConnection += newClientHandler;
 
-            Pkmn_DataObject test = new();
-        }
+         }
 
 
         public static void ServerThread(object ServerReference) // This is the initial function on the Server Thread.
