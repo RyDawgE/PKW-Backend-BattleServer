@@ -25,7 +25,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.Framework.RoundFlow
         {
             foreach (BattleEventBase b_event in battleEvents) 
             {
-                b_event.BeginBattleEvent();
+                b_event.BattleEventLogic();
             }
         }
 
