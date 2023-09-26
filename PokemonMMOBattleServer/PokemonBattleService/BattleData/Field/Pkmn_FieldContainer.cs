@@ -20,6 +20,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData.Field
 
         public void CreateFieldSpots()
         {
+            Console.WriteLine("Field Container");
             for (int i = 0; i < battleControllerReference.battleData.spotsPerTrainer ; i++)
             {
                 fieldSpots.Add(new Pkmn_FieldSpot(this));

@@ -2,6 +2,7 @@
 using PokemonMMOBattleServer.PokemonBattleService.Framework.Controller;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,11 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData.Field
 
         public void SetupField()
         {
-            foreach (PlayerControllerBase trainer in battleControllerReference.battleParticipants.GetAllPlayerControllers())
+            foreach (TeamSlot slot in battleControllerReference.teamSlots)
             {
-                //fieldContainers.Add(new Pkmn_FieldContainer(battleControllerReference, trainer);
-                // Field Containers should be made per TrainerDataObject, which hasnt had a place to go yet
-                // Come back to this later!! ToDo
+                Pkmn_FieldContainer container = new Pkmn_FieldContainer(battleControllerReference, slot.trainer);
+                fieldContainers.Add(container);
+                container.CreateFieldSpots();
             }
         }
 

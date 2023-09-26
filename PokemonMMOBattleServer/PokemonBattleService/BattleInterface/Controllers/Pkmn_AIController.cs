@@ -17,7 +17,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleInterface.Controller
         {
             base.GetSelection();
             TrainerSelectionData data = new();
-            
+            // Need to get current position on field here.
             return data;
 
         }

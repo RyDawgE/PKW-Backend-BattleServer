@@ -26,12 +26,13 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
             statManager.AddStat("spdef", "Special Defense", 0);
             statManager.AddStat("spd", "Speed", 0);
 
-            SetupStatsFromAPI(); // temp
+            SetupFromAPI(); // temp
 
         }
 
-        public async void SetupStatsFromAPI(string id  = "charizard")
+        public async void SetupFromAPI(string id  = "charizard")
         {
+            api_key = id;
             HttpClient? client = new();
             client.BaseAddress = new Uri("https://pokeapi.co/api/v2/pokemon/");
             client.DefaultRequestHeaders.Accept.Clear();

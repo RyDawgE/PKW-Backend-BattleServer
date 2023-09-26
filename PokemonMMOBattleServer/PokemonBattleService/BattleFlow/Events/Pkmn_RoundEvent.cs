@@ -33,7 +33,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents
             // Preround - Check Win Conditions
             // Trainer Turn A - Choose Move
             // Trainer Turn B - Choose Move
-            // Midround - Generate Turn Order
+            // Midround - Generate Turn Order, handle Megas
             // Battle Turn 1 - Execute Move
             // Battle Turn 2 - Execute Move
             // Postround - Timed Events End
@@ -43,7 +43,6 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents
             {
                 battleEvents.Add(new Pkmn_TrainerTurnEvent(GetBattleController(), trainer)); 
             }
-
         }
 
         

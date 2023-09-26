@@ -12,6 +12,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData.Field
         Pkmn_FieldContainer owningField;
         public Pkmn_FieldSpot(Pkmn_FieldContainer _fieldContainer) 
         {
+            Console.WriteLine("Made Field Slot");
             owningField = _fieldContainer;
         }
 
