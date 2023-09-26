@@ -18,9 +18,7 @@ namespace PokemonMMOBattleServerApp
             serverThread.Start(Server);
             EventHandler<ClientJoinEventArgs> newClientHandler = BattleLobby.NewClientHandler;
             Server.NewClientConnection += newClientHandler;
-
-            new BattleController();
-
+            BattleLobby.StartBattleEvent += StartBattleHandler;
          }
 
 
@@ -30,6 +28,14 @@ namespace PokemonMMOBattleServerApp
             ServerClass Server = (ServerClass)ServerReference;
             Server.StartServer();
             return;
+        }
+
+        public static void StartBattleHandler(Object? sender, BattleStartEventArgs e)
+        {
+            BattleController battleController = new BattleController();
+            battleController.SetupBattleController(e);
+            battleController.StartBattle();
+
         }
 
     }

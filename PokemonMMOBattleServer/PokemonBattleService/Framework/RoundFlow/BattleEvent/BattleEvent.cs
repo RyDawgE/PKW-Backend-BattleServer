@@ -16,15 +16,15 @@ namespace PokemonMMOBattleServer.PokemonBattleService.Framework.RoundFlow.Battle
             battleControllerReference = battleControllerRef;
         }
 
-        public void BeginBattleEvent()
+        public virtual void BeginBattleEvent()
         {
             return;
         }
-        public void BattleEventLogic()
+        public virtual void BattleEventLogic()
         {
             return;
         }
-        public void EndBattleEvent()
+        public virtual void EndBattleEvent()
         {
             return;
         }

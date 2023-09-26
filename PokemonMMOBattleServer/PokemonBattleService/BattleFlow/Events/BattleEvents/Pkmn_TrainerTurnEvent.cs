@@ -15,5 +15,12 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.Events.BattleEv
         {
             playerControllerReference = playerControllerRef;
         }
+
+        public override void BattleEventLogic()
+        {
+            base.BattleEventLogic();
+            playerControllerReference.GetSelection();
+
+        }
     }
 }
