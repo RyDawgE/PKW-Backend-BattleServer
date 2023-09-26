@@ -7,14 +7,14 @@ namespace PokemonMMOBattleServer.BattleLobbyService
     public class BattleStartEventArgs : EventArgs
     {
         public List<Socket>? Clients { get; set; }
-        public DateTime TimeJoined { get; set; }
+        public DateTime TimeStarted { get; set; }
     }
 
     public class BattleLobbyClass
     {
         public List<Socket> ActiveClients = new();
 
-        public static int PlayersToStart = 2;
+        public static int PlayersToStart = 1;
 
         public event EventHandler<BattleStartEventArgs> StartBattleEvent;
 
@@ -40,7 +40,7 @@ namespace PokemonMMOBattleServer.BattleLobbyService
         {
             BattleStartEventArgs battleArgs = new();         
             battleArgs.Clients = ActiveClients;             
-            battleArgs.TimeJoined = DateTime.Now;
+            battleArgs.TimeStarted = DateTime.Now;
             StartBattleEvent.Invoke(this, battleArgs);
 
             return;
