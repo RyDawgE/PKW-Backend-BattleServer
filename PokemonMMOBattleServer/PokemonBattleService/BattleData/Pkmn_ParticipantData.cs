@@ -19,7 +19,11 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
 
         public List<PlayerControllerBase> GetAllPlayerControllers()
         {
-            List<PlayerControllerBase> totalList = (List<PlayerControllerBase>)NetTrainerControllers.Concat(AITrainerControllers);
+            List<PlayerControllerBase> netList = NetTrainerControllers;
+            List<PlayerControllerBase> aiList = AITrainerControllers;
+            List<PlayerControllerBase> totalList = new();
+            totalList.AddRange(aiList);
+            totalList.AddRange(netList);
             return totalList;
         }
 
