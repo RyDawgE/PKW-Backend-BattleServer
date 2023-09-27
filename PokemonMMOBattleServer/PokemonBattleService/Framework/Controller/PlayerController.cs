@@ -12,6 +12,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.Framework.Controller
     {
         public string event_id = "move"; //move, item, switch, run
         public string event_selection_id = "tackle"; //move_id, item_id, party_slot_id, none
+        public int user_field_id = 0;
         public int target_team_id = 0; //team
         public int target_id = 0; //specific pokemon
         public List<string> event_args = new(); //mega
@@ -25,8 +26,9 @@ namespace PokemonMMOBattleServer.PokemonBattleService.Framework.Controller
         public int teamSlotIndex = -1;
         public virtual TrainerSelectionData GetSelection(int fieldID) //field ID corresponds to what pokemon the selection will count towards
         {
-            Console.WriteLine("Trainer Turn");
-            return new TrainerSelectionData(); 
+            TrainerSelectionData data = new();
+            data.user_field_id = fieldID;
+            return data; 
         }
     }
 

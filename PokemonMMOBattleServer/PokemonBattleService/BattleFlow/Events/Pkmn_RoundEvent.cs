@@ -49,6 +49,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents
             // Battle Turn 1 - Execute Move
             // Battle Turn 2 - Execute Move
             // Postround - Timed Events End
+            // This doesnt all happen in this method tho
 
             battleEvents.Add(new Pkmn_BattlePreroundEvent(GetBattleController()));
             foreach (PlayerControllerBase trainer in GetBattleController().battleParticipants.GetAllPlayerControllers())
@@ -57,13 +58,15 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents
             }
 
             EvaluateBattleEvents();
+            battleEvents.Add(new Pkmn_BattleMidroundEvent(GetBattleController()));
             EvaluateBattleTurns();
         }
         public void EvaluateBattleTurns()
         {
+
             foreach (SelectionSlot i in roundData.selectionData)
             {
-                Console.WriteLine(i.trainerSelectionData.event_selection_id);
+                Console.WriteLine(i.trainerSelectionData.event_selection_id); // This is where the speed calc should go.
             }
         }
     }
