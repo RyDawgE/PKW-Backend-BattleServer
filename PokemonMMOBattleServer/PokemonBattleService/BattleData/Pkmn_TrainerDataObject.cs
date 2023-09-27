@@ -34,5 +34,17 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
             pkmn.SetupFromAPI(pkmnIDs[2]); //Ill make this random later, kek
             Pkmn_Party.Add(pkmn);
         }
+
+        public Pkmn_DataObject GetEligiblePokemonReference()
+        {
+            foreach (Pkmn_DataObject pkmn in Pkmn_Party)
+            {
+                if (pkmn.canBeSentOut)
+                {
+                    return pkmn;
+                }
+            }
+            return null;
+        }
     }
 }

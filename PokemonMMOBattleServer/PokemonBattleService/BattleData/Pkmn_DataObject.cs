@@ -17,9 +17,10 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
         public StatManager statManager = new();
         public List<string> moves = new();
         public int level = 50;
+        public bool canBeSentOut = true;
         public Pkmn_DataObject() 
         {
-            statManager.AddStat("hp", "HP", 0);
+            statManager.AddStat("mhp", "HP", 0);
             statManager.AddStat("atk", "Attack", 0);
             statManager.AddStat("def", "Defense", 0);
             statManager.AddStat("spatk", "Special Attack", 0);

@@ -9,7 +9,8 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData.Field
 {
     public class Pkmn_FieldSpot
     {
-        Pkmn_FieldContainer owningField;
+        public Pkmn_FieldContainer owningField;
+        public Pkmn_DataObject? pkmnDataObject;
         public Pkmn_FieldSpot(Pkmn_FieldContainer _fieldContainer) 
         {
             owningField = _fieldContainer;
