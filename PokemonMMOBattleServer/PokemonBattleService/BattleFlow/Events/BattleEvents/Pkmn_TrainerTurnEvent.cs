@@ -20,7 +20,6 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.Events.BattleEv
         {
             base.BattleEventLogic();
             playerControllerReference.GetSelection();
-
         }
     }
 }

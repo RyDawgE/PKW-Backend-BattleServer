@@ -8,6 +8,6 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
 {
     public class Pkmn_BattleDataClass
     {
-        public readonly int spotsPerTrainer = 2;
+        public readonly int spotsPerTrainer = 1;
     }
 }

@@ -54,6 +54,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow
                 slot.trainer = new Pkmn_TrainerDataObject();
                 slot.trainer.SetupPokemonParty(player.trainerType, "api path or summ idk"); //Obviously temporary, kek
                 teamSlots.Add(slot);
+                slot.controller.teamSlotIndex = teamSlots.Count - 1;
             }
         }
 

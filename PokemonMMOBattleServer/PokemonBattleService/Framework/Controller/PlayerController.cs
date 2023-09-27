@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace PokemonMMOBattleServer.PokemonBattleService.Framework.Controller
 {
+
     public class TrainerSelectionData
     {
         string event_id = "move"; //move, item, switch, run
@@ -20,6 +21,8 @@ namespace PokemonMMOBattleServer.PokemonBattleService.Framework.Controller
     {
         public TrainerDataType trainerType = TrainerDataType.ai; //by default
         public PlayerControllerBase() { }
+
+        public int teamSlotIndex = -1;
         public virtual TrainerSelectionData GetSelection()
         {
             return new TrainerSelectionData(); 

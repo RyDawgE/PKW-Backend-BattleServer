@@ -18,6 +18,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.Framework.RoundFlow
 
         public virtual void SetupRoundEvent()
         {
+            battleEvents.Clear();
             return;
         }
 

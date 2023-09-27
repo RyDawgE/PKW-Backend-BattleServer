@@ -11,9 +11,16 @@ using System.Threading.Tasks;
 
 namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents
 {
+
+    public class Pkmn_RoundData
+    {
+        public Dictionary<TeamSlot, TrainerSelectionData> selectionData = new();
+    }
     public class Pkmn_BattleRoundEvent: RoundEventBase
     {
         private readonly BattleController? battleControllerReference;
+
+        public Pkmn_RoundData roundData = new();
         public Pkmn_BattleRoundEvent(BattleController battleControllerRef) :
             base()
         {
@@ -28,12 +35,13 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents
         public override void SetupRoundEvent()
         {
             base.SetupRoundEvent();
+            roundData = new Pkmn_RoundData();
 
-            // This is the main flow. It should look like this:"
+            // This is the main flow. It should look like this:
             // Preround - Check Win Conditions
             // Trainer Turn A - Choose Move
             // Trainer Turn B - Choose Move
-            // Midround - Generate Turn Order, handle Megas
+            // Midround - Generate Turn Order
             // Battle Turn 1 - Execute Move
             // Battle Turn 2 - Execute Move
             // Postround - Timed Events End
@@ -43,8 +51,6 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents
             {
                 battleEvents.Add(new Pkmn_TrainerTurnEvent(GetBattleController(), trainer)); 
             }
-        }
-
-        
+        }        
     }
 }
