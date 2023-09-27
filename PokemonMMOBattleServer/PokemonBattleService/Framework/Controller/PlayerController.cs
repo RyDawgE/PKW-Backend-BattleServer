@@ -10,21 +10,22 @@ namespace PokemonMMOBattleServer.PokemonBattleService.Framework.Controller
 
     public class TrainerSelectionData
     {
-        string event_id = "move"; //move, item, switch, run
-        string event_selection_id = "tackle"; //move_id, item_id, party_slot_id, none
-        int target_team_id = 0;
-        int target_id = 0;
-        List<string> event_args = new List<string>(); //mega
-
+        public string event_id = "move"; //move, item, switch, run
+        public string event_selection_id = "tackle"; //move_id, item_id, party_slot_id, none
+        public int target_team_id = 0; //team
+        public int target_id = 0; //specific pokemon
+        public List<string> event_args = new(); //mega
     }
+
     public class PlayerControllerBase
     {
         public TrainerDataType trainerType = TrainerDataType.ai; //by default
         public PlayerControllerBase() { }
 
         public int teamSlotIndex = -1;
-        public virtual TrainerSelectionData GetSelection()
+        public virtual TrainerSelectionData GetSelection(int fieldID) //field ID corresponds to what pokemon the selection will count towards
         {
+            Console.WriteLine("Trainer Turn");
             return new TrainerSelectionData(); 
         }
     }

@@ -1,4 +1,5 @@
-﻿using PokemonMMOBattleServer.PokemonBattleService.Framework.Controller;
+﻿using PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents;
+using PokemonMMOBattleServer.PokemonBattleService.Framework.Controller;
 using PokemonMMOBattleServer.PokemonBattleService.Framework.RoundFlow.BattleEvent;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.Events.BattleEv
 {
     public class Pkmn_TrainerTurnEvent: BattleEventBase
     {
-        private readonly PlayerControllerBase? playerControllerReference;
+        public readonly PlayerControllerBase? playerControllerReference;
         public Pkmn_TrainerTurnEvent(BattleController battleControllerRef, PlayerControllerBase playerControllerRef) : base(battleControllerRef)
         {
             playerControllerReference = playerControllerRef;
@@ -19,7 +20,15 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.Events.BattleEv
         public override void BattleEventLogic()
         {
             base.BattleEventLogic();
-            playerControllerReference.GetSelection();
+            int slot = battleControllerReference.teamSlots[playerControllerReference.teamSlotIndex].trainer.fieldContainerIndex;
+            for (int i=0; i < battleControllerReference.fieldController.fieldContainers[slot].fieldSpots.Count(); i++)
+            {
+                TrainerSelectionData selection = playerControllerReference.GetSelection(i);
+                SelectionSlot selectSlot = new();
+                selectSlot.trainerID = playerControllerReference.teamSlotIndex;
+                selectSlot.trainerSelectionData = selection;
+                battleControllerReference.roundQueue.roundData.selectionData.Add(selectSlot);
+            }
         }
     }
 }

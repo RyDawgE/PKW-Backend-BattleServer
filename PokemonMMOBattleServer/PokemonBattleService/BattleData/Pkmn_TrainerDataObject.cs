@@ -15,6 +15,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
     public class Pkmn_TrainerDataObject
     {
         public List<Pkmn_DataObject> Pkmn_Party = new();
+        public int fieldContainerIndex = -1;
         
         public Pkmn_TrainerDataObject()
         {

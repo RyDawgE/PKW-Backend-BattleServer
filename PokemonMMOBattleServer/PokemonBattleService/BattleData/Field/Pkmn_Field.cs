@@ -11,8 +11,8 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData.Field
 {
     public class Pkmn_Field
     {
-        BattleController battleControllerReference;
-        List<Pkmn_FieldContainer> fieldContainers = new();
+        public readonly BattleController battleControllerReference;
+        public List<Pkmn_FieldContainer> fieldContainers = new();
         public Pkmn_Field(BattleController _battleController) 
         {
             battleControllerReference = _battleController;
@@ -24,6 +24,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData.Field
             {
                 Pkmn_FieldContainer container = new Pkmn_FieldContainer(battleControllerReference, slot.trainer);
                 fieldContainers.Add(container);
+                slot.trainer.fieldContainerIndex = fieldContainers.Count() -1;
                 container.CreateFieldSpots();
             }
         }

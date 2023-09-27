@@ -11,10 +11,14 @@ using System.Threading.Tasks;
 
 namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents
 {
-
+    public class SelectionSlot
+    {
+        public int trainerID { get; set;}
+        public TrainerSelectionData trainerSelectionData { get; set;}
+    }
     public class Pkmn_RoundData
     {
-        public Dictionary<TeamSlot, TrainerSelectionData> selectionData = new();
+        public List<SelectionSlot> selectionData = new();
     }
     public class Pkmn_BattleRoundEvent: RoundEventBase
     {
@@ -51,6 +55,16 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents
             {
                 battleEvents.Add(new Pkmn_TrainerTurnEvent(GetBattleController(), trainer)); 
             }
-        }        
+
+            EvaluateBattleEvents();
+            EvaluateBattleTurns();
+        }
+        public void EvaluateBattleTurns()
+        {
+            foreach (SelectionSlot i in roundData.selectionData)
+            {
+                Console.WriteLine(i.trainerSelectionData.event_selection_id);
+            }
+        }
     }
 }

@@ -35,6 +35,7 @@ namespace PokemonMMOBattleServerApp
             BattleController battleController = new BattleController();
             battleController.SetupBattleController(e);
             battleController.StartBattle();
+            return;
         }
     }
 }

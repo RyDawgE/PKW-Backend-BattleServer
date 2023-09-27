@@ -13,11 +13,10 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleInterface.Controller
         { 
 
         }
-        public override TrainerSelectionData GetSelection()
+        public override TrainerSelectionData GetSelection(int fieldID)
         {
-            base.GetSelection();
+            base.GetSelection(fieldID);
             TrainerSelectionData data = new();
-            // Need to get current position on field here.
             return data;
 
         }

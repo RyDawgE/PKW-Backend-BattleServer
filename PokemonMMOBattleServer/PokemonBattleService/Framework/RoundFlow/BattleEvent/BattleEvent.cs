@@ -10,7 +10,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.Framework.RoundFlow.Battle
 {
     public class BattleEventBase
     {
-        private readonly BattleController? battleControllerReference;
+        public readonly BattleController? battleControllerReference;
         public BattleEventBase(BattleController battleControllerRef) 
         {
             battleControllerReference = battleControllerRef;
