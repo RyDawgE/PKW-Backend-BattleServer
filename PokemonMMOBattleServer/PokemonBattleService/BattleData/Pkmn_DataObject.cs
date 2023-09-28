@@ -13,7 +13,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
 {
     public class Pkmn_DataObject
     {
-        public static string api_key = "pikachu";
+        public string api_key = "pikachu";
         public StatManager statManager = new();
         public List<string> moves = new();
         public int level = 50;
@@ -28,7 +28,6 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
             statManager.AddStat("spd", "Speed", 0);
 
             SetupFromAPI(); // temp
-
         }
 
         public async void SetupFromAPI(string id  = "charizard")
@@ -45,7 +44,7 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleData
 
                 List<Stat> pokeStats = new()
                 {
-                    statManager.GetStat("hp"),
+                    statManager.GetStat("mhp"),
                     statManager.GetStat("atk"),
                     statManager.GetStat("def"),
                     statManager.GetStat("spatk"),

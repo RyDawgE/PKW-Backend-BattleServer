@@ -28,6 +28,9 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.Events.BattleEv
                 selectSlot.trainerID = playerControllerReference.teamSlotIndex;
                 selectSlot.trainerSelectionData = selection;
                 battleControllerReference.roundQueue.roundData.selectionData.Add(selectSlot);
+                Console.WriteLine(battleControllerReference.fieldController.fieldContainers[slot].fieldSpots[i].pkmnDataObject.api_key);
+                
+
             }
         }
     }

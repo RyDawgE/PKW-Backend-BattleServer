@@ -57,13 +57,14 @@ namespace PokemonMMOBattleServer.PokemonBattleService.BattleFlow.BattleEvents
                 battleEvents.Add(new Pkmn_TrainerTurnEvent(GetBattleController(), trainer)); 
             }
 
-            EvaluateBattleEvents();
+            EvaluateBattleEvents(); // Evaluate the trainer turns, then get them out of the way
+
             battleEvents.Add(new Pkmn_BattleMidroundEvent(GetBattleController()));
+
             EvaluateBattleTurns();
         }
         public void EvaluateBattleTurns()
         {
-
             foreach (SelectionSlot i in roundData.selectionData)
             {
                 Console.WriteLine(i.trainerSelectionData.event_selection_id); // This is where the speed calc should go.
